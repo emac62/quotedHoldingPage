@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guess the Daily Quote. Choose letters and see them revealed on the game board.">
+  <meta name="keywords" content="quote, daily, game, points">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Daily Quote</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Daily Quote</h1>
+
+    <h5>Guess a famous quotation with only 10 letters.</h5>
+    <div>
+      <p>Choose indivdual letters and press <span class="text-emph">ENTER</span> to have them revealed in the
+        game
+        board. A maximum of 10
+        letters
+        can be used before you must solving the quotation. Showing <span class="text-emph">SPACES BETWEEN
+          WORDS</span> counts as
+        a turn
+        but is not available in Hard
+        Mode.
+        There are no periods but commas and apostrophes will count as a letter choice.
+        The quote can be solved at any time but once the <span class="text-emph-wide">GUESS THE QUOTE</span> is pressed
+        you cannot return to choosing
+        letters. Once in "Guess Mode", enter the letters in sequential order to complete the quote. The <span
+          class="text-emph-wide">GUESS THE QUOTE</span> button will change to <span class="text-emph-wide">SOLVE</span>
+        .</p>
+      <div class="row align-items-center py-2">
+        <div class="col" id="count">
+          <h6 class="guesses text-center">Letters Used: <span id="guessCount">0</span>/10</h6>
+        </div>
+        <div class="col">
+          <button class="keyboard-button solveBtn">Guess the Quote</button>
+        </div>
+      </div>
+      <div id="keyboard-cont">
+        <div class="first-row">
+          <button class="keyboard-button" id="q">q</button>
+          <button class="keyboard-button" id="" w>w</button>
+          <button class="keyboard-button" id="e">e</button>
+          <button class="keyboard-button" id="r">r</button>
+          <button class="keyboard-button" id="t">t</button>
+          <button class="keyboard-button" id="y">y</button>
+          <button class="keyboard-button" id="u">u</button>
+          <button class="keyboard-button" id="i">i</button>
+          <button class="keyboard-button" id="o">o</button>
+          <button class="keyboard-button" id="p">p</button>
+          <button class="delete wideBtn" id="del">Del</button>
+        </div>
+        <div class="second-row" id="">
+          <button class="keyboard-button" id="a">a</button>
+          <button class="keyboard-button" id="s">s</button>
+          <button class="keyboard-button" id="d">d</button>
+          <button class="keyboard-button" id="f">f</button>
+          <button class="keyboard-button" id="g">g</button>
+          <button class="keyboard-button" id="h">h</button>
+          <button class="keyboard-button" id="j">j</button>
+          <button class="keyboard-button" id="k">k</button>
+          <button class="keyboard-button" id="l">l</button>
+          <button class="keyboard-button" id="'">'</button>
+        </div>
+        <div class="third-row" id="">
+          <button class="keyboard-button" id="z">z</button>
+          <button class="keyboard-button" id="x">x</button>
+          <button class="keyboard-button" id="c">c</button>
+          <button class="keyboard-button" id="v">v</button>
+          <button class="keyboard-button" id="b">b</button>
+          <button class="keyboard-button" id="n">n</button>
+          <button class="keyboard-button" id="m">m</button>
+          <button class="keyboard-button" id=",">,</button>
+          <button class="enter" id="enter">Enter</button>
+        </div>
+        <div class="fourth-row" id="">
+          <button class="keyboard-button spaceBtn" id="space">show spaces between words</button>
+        </div>
+      </div>
+      <h3>Game board for: "I THINK, THEREFORE I AM"</h3>
+      <img src="img/BlankBoard.png" alt="">
+      <p>Spaces between words will not appear at the
+        end of a line, only at the start beginning with the second row. Choosing the <span class="text-emph">SHOW SPACES
+          BETWEEN WORDS</span>
+        button removes the
+        box outline on the game board.
+      </p>
+
+      <img src="img/WithSpaces.png" alt="">
+      <p>After choosing these characters <span class="text-emph"> ,</span> ,
+        <span class="text-emph"> I</span> , <span class="text-emph"> E</span> and <span class="text-emph"> M</span>
+        the board will look like this.
+        If a
+        letter appears more than once, all instances will be revealed.
+      </p>
+      <img src="img/ChoosingLetters.png" alt="">
+      <p>When a chosen letter is not in the quotation, it will be blacked out on the keyboard.</p>
+
+      <div class="text-center"><span class="text-emph-wide">GUESS THE QUOTE</span></div>
+
+      <p>The boxes with missing letters will be shaded blue. Each blue box is now a button. Letters can be
+        entered
+        in order following the yellow hightlight or you can click any blue box and enter that letter. </p>
+      <img src="img/GuessBoard.png" alt="">
+      <p>Once you have entered all the letters to
+        complete the quote, press <span class="text-emph-wide">SOLVE</span> .</p>
+
+      <h3>Points</h3>
+      <ul class="points-list">
+        <li>10 points for each letter revealed</li>
+        <li>50 bonus points for every unused letter</li>
+        <li>100 bonus points for not using the space</li>
+        <li>500 points for solving correctly</li>
+      </ul>
+      <div>
+        <h5>Statistics</h5>
+      </div>
+      <div class="stats-container">
+        <div class="stats-row">
+          <div class="stat played">50</div>
+          <div class="stat won">45</div>
+          <div class="stat winPercentage">90</div>
+          <div class="stat currentPoints">750</div>
+          <div class="stat maxPoints">800</div>
+          <div class="stat averageLetters">7.4</div>
+        </div>
+        <div class="header-row">
+          <div class="stats-header">Played</div>
+          <div class="stats-header">Solved</div>
+          <div class="stats-header">% Solved</div>
+          <div class="stats-header">Current Points</div>
+          <div class="stats-header">Best Game</div>
+          <div class="stats-header">Average Letters Used</div>
+
+        </div>
+      </div>
+    </div>
+    <h3>Coming Soon!</h3>
+    <footer class="text-center pb-5">&copy 2022 <a href="https://www.borderlineboomer.ca">boarderlineboomer.ca</a>
+    </footer>
+</body>
+
+</html>
