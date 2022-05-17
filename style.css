@@ -70,6 +70,22 @@ button.linkBtn {
 
 }
 
+a.linkBtn {
+  vertical-align: middle;
+  padding: 5px;
+  background-color: #75ADAF;
+  border: 2px solid #182835;
+  border-radius: 5px;
+  color: #182835;
+  text-decoration: none;
+  font-size: smaller;
+}
+
+a.linkBtn:hover {
+  cursor: pointer;
+  background-color: #739976;
+}
+
 button.linkBtn:hover {
   cursor: pointer;
   background-color: #739976;
@@ -195,7 +211,7 @@ button.linkBtn:hover {
   margin: 0.5rem auto;
 }
 
-#enter {
+#enter, #ENTER {
   width: 5rem;
 }
 
@@ -209,7 +225,7 @@ button.linkBtn:hover {
 }
 
 
-#solveBtn, #hintBtn {
+#solveBtn, #hintBtn, #solveBtnP {
   width: max-content;
   display: block;
   margin: 5px auto;

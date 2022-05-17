@@ -21,6 +21,8 @@ const dayOffset = (msOffset / 1000 / 60 / 60 / 24) | 0
 // console.log("dayOffset: " + dayOffset)
 
 var currentGamePoints = 0
+var runningPoints = JSON.parse(localStorage.getItem("runningPoints"))
+if (runningPoints == null) runningPoints = currentGamePoints
 var finishedGames = JSON.parse(localStorage.getItem("finishedGames"))
 if (finishedGames === null) finishedGames = []
 
@@ -55,6 +57,7 @@ let spaces = [];
 let letterBoxes = []
 let letterBoxesLen = 0
 let endResult = ""
+let runPts = document.getElementById("runningPts")
 
 var currentGuess = JSON.parse(localStorage.getItem("currentGuess"))
 if (currentGuess === null) currentGuess = []
@@ -237,7 +240,10 @@ function initBoard() {
     letterBoxes[i].disabled = true
   }
   if (lastQuoteLoaded == currentQuote) {
-    if (finishedGames.includes(currentQuote)) { //check completed currentQuote
+    if (finishedGames.includes(currentQuote)) {//check completed currentQuote
+      runningPoints = gamePoints[gamePoints.length - 1]
+      runPts.textContent = runningPoints
+      document.getElementById('guessCount').innerHTML = averageLetters[averageLetters.length - 1]
       revealAnswer()
       getStats()
       setTimeout(function () { $('#endOfGameModal').modal('show') }, 3000)
@@ -262,6 +268,8 @@ function revealAnswer() {
 
   }
 }
+
+
 initBoard()
 
 let blockQuote = document.getElementById('blockquote')
@@ -433,6 +441,8 @@ const pressEnter = async () => {
       box.style.color = "#F5F4F4"
       shadeKeyBoard(currentGuess[nextLetter - 1], '#739976')
       currentGamePoints += 10
+      runPts.innerHTML = currentGamePoints
+      localStorage.setItem("runningPoints", currentGamePoints)
     }
     await sleep(50)
   }
@@ -492,17 +502,22 @@ function checkSaying() {
     });
     if (isSame == false) {
       toastPopup("Sorry, that is not correct.")
-      setTimeout(revealAnswer, 3500)
+      for (var i = 0; i < letterBoxesLen; i++) {
+        if (compareBoxes[i] != phrase[i]) {
+          letterBoxes[i].style.color = "red"
+        }
+      }
+      setTimeout(revealAnswer, 6000)
       endOfGameSaveLS()
       gamesLost += 1
       endResult = "Missed"
       localStorage.setItem("gamesLost", gamesLost)
       getAverageLetterInt()
       getStats()
-      setTimeout(function () { $('#endOfGameModal').modal('show') }, 6000)
+      setTimeout(function () { $('#endOfGameModal').modal('show') }, 8000)
 
     } else {
-      for (var i = 0; i < letterBoxes.length; i++) {
+      for (var i = 0; i < letterBoxesLen; i++) {
         animateCSS(letterBoxes[i], 'flipInX')
         letterBoxes[i].style.border = "none"
         letterBoxes[i].style.backgroundColor = "#739976"
@@ -519,8 +534,12 @@ function checkSaying() {
         currentGamePoints += 100
       }
       currentGamePoints += 500
+      runPts.innerHTML = currentGamePoints
+      localStorage.setItem("runningPoints", currentGamePoints)
       var bonus = (10 - nextLetter) * 50
       currentGamePoints = currentGamePoints + bonus
+      runPts.innerHTML = currentGamePoints
+      localStorage.setItem("runningPoints", currentGamePoints)
       endOfGameSaveLS()
       getAverageLetterInt()
       getStats()
@@ -534,8 +553,12 @@ function checkSaying() {
       endResult = "Solved"
       localStorage.setItem("gamesWon", gamesWon)
       currentGamePoints += 500
+      runPts.innerHTML = currentGamePoints
+      localStorage.setItem("runningPoints", currentGamePoints)
       var bonus = (10 - nextLetter) * 50
       currentGamePoints = currentGamePoints + bonus
+      runPts.innerHTML = currentGamePoints
+      localStorage.setItem("runningPoints", currentGamePoints)
       setTimeout(revealAnswer, 3000)
       endOfGameSaveLS()
       getAverageLetterInt()
@@ -704,6 +727,7 @@ function endOfGameSaveLS() {
   localStorage.setItem("lastQuoteLoaded", JSON.stringify(currentQuote))
   solveBtn.disabled = true
   solveBtn.style.border = "none"
+  localStorage.setItem("runningPoints", 0)
 }
 
 //Share
@@ -737,7 +761,7 @@ function resetGame() {
           box.style.backgroundColor = "#739976"
           box.style.color = "#F5F4F4"
           shadeKeyBoard(currentGuess[i], '#739976')
-          currentGamePoints += 10
+          runPts.innerHTML = localStorage.getItem("runningPoints")
         }
       }
       updateCount()
