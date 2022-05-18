@@ -96,7 +96,7 @@ function setQuote(response) {
     if (!isSolving) {
       deleteLetter(currentGuess[currentGuess.length - 1])
     } else {
-      // let letter = document.getElementById(guessBoxesUsed[guessBoxesUsed.length - 1]).textContent
+      let letter = document.getElementById(guessBoxesUsed[guessBoxesUsed.length - 1]).textContent
       deleteLetter(letter)
     }
   })
