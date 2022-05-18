@@ -218,7 +218,7 @@ function initBoard() {
   for (var i = 0; i < letterBoxesLen; i++) {
     letterBoxes[i].id = i
     letterBoxes[i].disabled = true
-    if (quoteArr[i] == "." || quoteArr[i] == "," || quoteArr[i] == "'" || quoteArr[i] == " " || quoteArr[i] == ";" || quoteArr[i] == "!" || quoteArr[i] == '"' || quoteArr[i] == "?") {
+    if (quoteArr[i] == "." || quoteArr[i] == "," || quoteArr[i] == "'" || quoteArr[i] == " " || quoteArr[i] == ";" || quoteArr[i] == "!" || quoteArr[i] == '"' || quoteArr[i] == "?" || quoteArr[i] == "-") {
       letterBoxes[i].style.borderColor = "transparent"
       letterBoxes[i].style.color = "#F5F4F4"
       letterBoxes[i].textContent = quoteArr[i]
