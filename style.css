@@ -411,6 +411,17 @@ p.quote-context {
   font-weight: 400;
 }
 
+.letter-box-selected {
+  border: 2px solid yellow;
+}
+
+.letter-box-unselected {
+  border: 1px solid #F5F4F4;
+}
+.letter-box-used {
+  border: none;
+}
+
 #toast {
   visibility: hidden;
   min-width: 250px;

@@ -58,6 +58,7 @@ let letterBoxes = []
 let letterBoxesLen = 0
 let endResult = ""
 let runPts = document.getElementById("runningPts")
+let firstEmpty = 0
 
 var currentGuess = JSON.parse(localStorage.getItem("currentGuess"))
 if (currentGuess === null) currentGuess = []
@@ -296,8 +297,11 @@ delBtn.addEventListener("click", function () {
   if (!isSolving) {
     deleteLetter(currentGuess[currentGuess.length - 1])
   } else {
-    let letter = document.getElementById(guessBoxesUsed[guessBoxesUsed.length - 1]).textContent
-    deleteLetter(letter)
+    if (guessBoxesUsed.length > 0) {
+      let letter = document.getElementById(guessBoxesUsed[guessBoxesUsed.length - 1]).textContent
+      deleteLetter(letter)
+    }
+
   }
 })
 
@@ -374,7 +378,6 @@ function insertLetter(pressedKey) {
 
 function deleteLetter(pressedKey) {
   delBtn.style.backgroundColor = "#F5F4F4"
-
   if (isSolving === false) {
     enterBtn.style.backgroundColor = "#F5F4F4"
     let delLet = document.getElementById(pressedKey)
@@ -403,10 +406,14 @@ function deleteLetter(pressedKey) {
       let boxId = guessBoxesUsed[guessBoxesUsed.length - 1]
       let box = document.getElementById(boxId)
       box.textContent = ""
-      box.style.border = "1px solid #F5F4F4"
-      document.getElementById(guessBoxes[firstEmpty]).style.border = "1px solid #F5F4F4"
+      box.classList.remove("letter-box-used")
+      // box.classList.add("letter-box-unselected")
+
+      document.querySelectorAll('.letter-box-selected').forEach(function (box) {
+        box.classList.remove("letter-box-selected")
+      });
       getFirstEmptyGuessBox()
-      document.getElementById(guessBoxes[firstEmpty]).style.border = "2px solid yellow"
+      document.getElementById(guessBoxes[firstEmpty]).classList.add("letter-box-selected")
       guessBoxesUsed.pop(boxId)
       selectedBox.pop(boxId)
     }
@@ -436,7 +443,7 @@ const pressEnter = async () => {
     } else if (phrase[i] === letter && letter != " ") {
       animateCSS(box, 'flipInX')
       box.textContent = letter
-      box.style.border = "none"
+      box.classList.add("letter-box-used")
       box.style.backgroundColor = "#739976"
       box.style.color = "#F5F4F4"
       shadeKeyBoard(currentGuess[nextLetter - 1], '#739976')
@@ -515,7 +522,7 @@ function checkSaying() {
       getAverageLetterInt()
       getStats()
       setTimeout(function () { $('#endOfGameModal').modal('show') }, 8000)
-
+      solveBtn.style.border = "none"
     } else {
       for (var i = 0; i < letterBoxesLen; i++) {
         animateCSS(letterBoxes[i], 'flipInX')
@@ -525,7 +532,7 @@ function checkSaying() {
       }
       toastPopup("Correct!")
       setTimeout(revealAnswer, 3000)
-
+      solveBtn.style.border = "none"
       gamesWon += 1
       endResult = "Solved"
       localStorage.setItem("gamesWon", gamesWon)
@@ -544,6 +551,7 @@ function checkSaying() {
       getAverageLetterInt()
       getStats()
       setTimeout(function () { $('#endOfGameModal').modal('show') }, 6000)
+      solveBtn.style.border = "none"
     }
   } else {
     phraseToCompare = removeItem(phraseToCompare, currentGuess[nextLetter - 1])
@@ -578,7 +586,7 @@ function guessThePhrase() {
   hintBtn.classList.remove("invisible")
   hintBtn.classList.add("visible")
   spaceBar.textContent = "space"
-  delBtn.disabled = false
+  delBtn.disabled = true
   enterBtn.disabled = true
   for (var i = 0; i < letterBoxesLen; i++) {
     let box = letterBoxes[i]
@@ -594,12 +602,12 @@ function guessThePhrase() {
   }
   guessBoxesLen = guessBoxes.length
   if (guessBoxesLen > 0) {
-    document.getElementById(guessBoxes[firstEmpty]).style.border = "2px solid yellow"
+    document.getElementById(guessBoxes[firstEmpty]).classList.add("letter-box-selected")
   }
 }
 
 let selectedBox = []
-let firstEmpty = 0
+
 var guess
 function getFirstEmptyGuessBox() {
   for (var i = 0; i < guessBoxesLen; i++) {
@@ -614,24 +622,31 @@ function getFirstEmptyGuessBox() {
 function getUserInput(box) {
   userInput = true
   getFirstEmptyGuessBox()
-  document.getElementById(guessBoxes[firstEmpty]).style.border = "none"
+  document.querySelectorAll('.letter-box-selected').forEach(function (box) {
+    box.classList.remove("letter-box-selected")
+  });
+  document.getElementById(box).classList.remove("letter-box-used")
   selectedBox.push(box)
-  document.getElementById(selectedBox[selectedBox.length - 1]).style.border = "2px solid yellow"
+  document.getElementById(selectedBox[selectedBox.length - 1]).classList.add("letter-box-selected")
 }
 
 function enterUserInput(pressedKey) {
+  delBtn.disabled = false
   let latestClick = selectedBox[selectedBox.length - 1]
   let el = document.getElementById(latestClick)
   el.textContent = pressedKey
   el.style.color = "#F5F4F4"
-  el.style.border = "none"
+  el.classList.remove("letter-box-selected")
+  el.classList.remove("letter-box-unselected")
+  el.classList.add("letter-box-used")
   guessBoxesUsed.push(latestClick)
   userInput = false
   getFirstEmptyGuessBox()
-  document.getElementById(guessBoxes[firstEmpty]).style.border = "2px solid yellow"
+  document.getElementById(guessBoxes[firstEmpty]).classList.add("letter-box-selected")
 }
 
 function enterGuessLetters(pressedKey) {
+  delBtn.disabled = false
   if (guessBoxes.length > 0) {
 
     if (!userInput) {
@@ -646,11 +661,12 @@ function enterGuessLetters(pressedKey) {
       guess.textContent = pressedKey
     }
     guessBoxesUsed.push(guess.id)
-    guess.style.border = "none"
+    guess.classList.remove("letter-box-selected")
+    guess.classList.add("letter-box-used")
     guess.style.color = "#F5F4F4"
     getFirstEmptyGuessBox()
     userInput = false
-    document.getElementById(guessBoxes[firstEmpty]).style.border = "2px solid yellow"
+    document.getElementById(guessBoxes[firstEmpty]).classList.add("letter-box-selected")
   }
   solveBtn.textContent = "Solve"
   if (guessBoxesLen === guessBoxesUsed.length) {
