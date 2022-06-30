@@ -23,7 +23,7 @@ let keyboardBtns = document.getElementsByClassName("keyboard-button")
 let solveBtn = document.getElementById("solveBtnP")
 async function getvals() {
   try {
-    const response = await fetch("https://api.quotable.io/random?minLength=30&maxLength=80",
+    const response = await fetch("https://api.quotable.io/random?minLength=30&maxLength=70",
       {
         method: "GET",
         headers: {

@@ -86,6 +86,10 @@ if (showAnimations === null) showAnimations = "true"
 
 var showAnimationBool = (showAnimations === 'true')
 
+let gameMode = localStorage.getItem("gameMode")
+if (gameMode === null) gameMode = "Regular"
+
+
 var gamesWon = 0
 if (localStorage.getItem("gamesWon") === null) {
   localStorage.setItem("gamesWon", 0)
@@ -239,6 +243,14 @@ function initBoard() {
   for (var i = 0; i < letterBoxesLen; i++) {
     letterBoxes[i].id = i
     letterBoxes[i].disabled = true
+    if (gameMode == "Easy") {
+      if (phrase[i].match(/[.;:"'!, -?]/gi)) {
+        letterBoxes[i].style.borderColor = "transparent"
+        letterBoxes[i].style.color = "#F5F4F4"
+        letterBoxes[i].textContent = phrase[i]
+      }
+    }
+
   }
   if (lastQuoteLoaded == currentQuote) {
     if (finishedGames.includes(currentQuote)) {//check completed currentQuote
@@ -307,6 +319,12 @@ delBtn.addEventListener("click", function () {
 
 let solveBtn = document.getElementById("solveBtn")
 let spaceBar = document.getElementById("space")
+if (gameMode == "Hard") {
+  spaceBar.classList.add("hidden")
+} else {
+  spaceBar.classList.remove("hidden")
+}
+
 var buttons = document.querySelectorAll(".keyboard-button").length;
 
 for (var i = 0; i < buttons; i++) {
@@ -537,7 +555,7 @@ function checkSaying() {
       endResult = "Solved"
       localStorage.setItem("gamesWon", gamesWon)
       let spaceUsed = currentGuess.includes(" ")
-      if (spaceUsed === false) {
+      if (gameMode != "Easy" && spaceUsed === false) {
         currentGamePoints += 100
       }
       currentGamePoints += 500

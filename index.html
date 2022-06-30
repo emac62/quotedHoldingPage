@@ -221,16 +221,31 @@
               </div>
             </div>
             <div class="settings-type">
-              Hard Mode:
+              Game Mode:
             </div>
-            <div class="set-mode clearfix">
-              <div class="set-desc">Play without the space bar</div>
-              <div class="set-switch form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="hardModeSwitch">
-              </div>
+            <div class="form-check">
+              <input class="form-check-input radio" type="radio" name="gameOption" id="hardRadio" value="Hard">
+              <label class="form-check-label set-desc" for="hardRadio">
+                Hard: Play without the space bar or puctuation
+              </label>
             </div>
-            <div class="settings-type">
-              Practice Mode:
+            <div class="form-check">
+              <input class="form-check-input radio" type="radio" name="gameOption" id="regularRadio" value="Regular">
+              <label class="form-check-label  set-desc" for="regularRadio">
+                Regular: Play without showing spaces or punctuation
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input radio" type="radio" name="gameOption" id="easyRadio" value="Easy">
+              <label class="form-check-label  set-desc" for="easyRadio">
+                Easy: Play showing puctuation and spaces between words
+              </label>
+            </div>
+
+
+
+            <div class="settings-type mt-2">
+              Practice Quotes:
             </div>
             <div class="set-mode clearfix">
               <div class="set-desc">These quotes are from a different repository. Some may be
@@ -371,7 +386,10 @@
     </div>
 
   </div>
-  <div class="text-center"></div>
+  <div class="text-center">One game mode has been added to this update. Click on the Settings icon above.
+  </div>
+  <div class="text-center"> Easy mode will show spaces and punctuation without using a letter.
+  </div>
 
 
   <!-- <div class="banner-ad text-center pt-4">Future Banner Ad</div> -->
@@ -417,13 +435,36 @@
 
     });
 
-    $("#hardModeSwitch").change(function () {
-      if ($(this).prop("checked") == true) {
-        document.getElementById("space").classList.add("hidden")
-      } else {
-        document.getElementById("space").classList.remove("hidden")
-      }
+    let gameMode = localStorage.getItem("gameMode")
+    if (gameMode === null) gameMode = "Regular"
+    //call reload on page load
+    reload();
+
+    //add click functionality to radio buttons
+    Array.from(document.querySelectorAll('input[type="radio"]')).forEach(function (item, index) {
+      item.addEventListener('click', save);
     });
+
+    //Save Values
+    function save() {
+      //Radiobuttons  
+      var g1 = document.querySelector('input[name=gameOption]:checked');
+      g1 = (g1) ? g1.value : '';
+      localStorage.setItem("gameMode", g1);
+      location.reload()
+    }
+    //Restoring saved Values
+    function reload() {
+      // Radiobuttons    
+      // get a list of DOM elements
+      var G1 = Array.from(document.getElementsByName('gameOption'));
+      var val1 = localStorage.getItem('gameMode');
+      for (var i = 0; i < G1.length; i++) {
+        if (G1[i].value == val1) {
+          G1[i].checked = true;
+        }
+      }
+    }
 
 
 

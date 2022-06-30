@@ -61,12 +61,13 @@ h1, h3 {
   justify-content: end;
 }
 
-button.linkBtn {
+button.linkBtn, a.backBtn {
   vertical-align: middle;
   padding: 5px;
   background-color: transparent;
   border: 2px solid transparent;
   color: #F5F4F4;
+  text-decoration: none;
 
 }
 
@@ -86,7 +87,7 @@ a.linkBtn:hover {
   background-color: #739976;
 }
 
-button.linkBtn:hover {
+button.linkBtn:hover, a.backBtn:hover {
   cursor: pointer;
   background-color: #739976;
   border: 2px solid #F5F4F4;
