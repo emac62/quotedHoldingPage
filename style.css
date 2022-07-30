@@ -19,9 +19,11 @@ html {
   height: -webkit-fill-available;
 }
 
-h1, h3 {
+h1,
+h3 {
   text-align: center;
 }
+
 .banner-ad-container {
   width: 600px;
   height: 80px;
@@ -61,7 +63,8 @@ h1, h3 {
   justify-content: end;
 }
 
-button.linkBtn, a.backBtn {
+button.linkBtn,
+a.backBtn {
   vertical-align: middle;
   padding: 5px;
   background-color: transparent;
@@ -87,7 +90,8 @@ a.linkBtn:hover {
   background-color: #739976;
 }
 
-button.linkBtn:hover, a.backBtn:hover {
+button.linkBtn:hover,
+a.backBtn:hover {
   cursor: pointer;
   background-color: #739976;
   border: 2px solid #F5F4F4;
@@ -113,7 +117,9 @@ button.linkBtn:hover, a.backBtn:hover {
   border-radius: 5px;
 }
 
-.next-quote .hours, .next-quote .minutes, .next-quote .seconds {
+.next-quote .hours,
+.next-quote .minutes,
+.next-quote .seconds {
   color: #182835;
   background: #F5F4F4;
 
@@ -122,7 +128,8 @@ button.linkBtn:hover, a.backBtn:hover {
 
 }
 
-.next-quote .hSep, .next-quote .mSep {
+.next-quote .hSep,
+.next-quote .mSep {
   padding: 5px;
 }
 
@@ -185,7 +192,9 @@ button.linkBtn:hover, a.backBtn:hover {
   margin: 0.5rem 0;
 }
 
-.keyboard-button, .enter, .delete {
+.keyboard-button,
+.enter,
+.delete {
   text-align: center;
   width: 2.25rem;
   font-size: 1rem;
@@ -212,7 +221,8 @@ button.linkBtn:hover, a.backBtn:hover {
   margin: 0.5rem auto;
 }
 
-#enter, #ENTER {
+#enter,
+#ENTER {
   width: 5rem;
 }
 
@@ -226,7 +236,9 @@ button.linkBtn:hover, a.backBtn:hover {
 }
 
 
-#solveBtn, #hintBtn, #solveBtnP {
+#solveBtn,
+#hintBtn,
+#solveBtnP {
   width: max-content;
   display: block;
   margin: 5px auto;
@@ -295,7 +307,9 @@ button.linkBtn:hover, a.backBtn:hover {
 }
 
 
-.header-row, .stats-row, .footer-container {
+.header-row,
+.stats-row,
+.footer-container {
   width: 80%;
   margin: 0 auto;
   display: flex;
@@ -324,18 +338,20 @@ button.linkBtn:hover, a.backBtn:hover {
   align-items: center;
 }
 
-.stats-header, .stat {
+.stats-header,
+.stat {
   flex: 1;
   font-size: small;
   text-align: center;
 }
 
-.currentPoints, .maxPoints {
+.currentPoints,
+.maxPoints {
   font-size: larger;
 }
 
 .share-section {
-  
+
   text-align: center;
   flex: 1;
 }
@@ -356,15 +372,15 @@ p.quote-context {
 
 .form-check-input {
   float: right !important;
+  background-color: rgba(0, 0, 0, 0.1);
+
 }
 
 .form-check-input:checked {
-  background-color: #75ADAF;
+  background-color: #739976;
+
 }
 
-.form-check-input, .form-check-input:checked {
-  border: none
-}
 
 .set-mode {
   clear: both;
@@ -404,7 +420,8 @@ p.quote-context {
   text-align: center;
 }
 
-#lettersUsed, #currentGamePts {
+#lettersUsed,
+#currentGamePts {
   padding: 2px 7px;
   background-color: #739976;
   color: #F5F4F4;
@@ -419,6 +436,7 @@ p.quote-context {
 .letter-box-unselected {
   border: 1px solid #F5F4F4;
 }
+
 .letter-box-used {
   border: none;
 }
@@ -446,23 +464,51 @@ p.quote-context {
 }
 
 @-webkit-keyframes fadein {
-  from {top: 0; opacity: 0;} 
-  to {top: 30px; opacity: 1;}
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {top: 0; opacity: 0;}
-  to {top: 30px; opacity: 1;}
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {top: 30px; opacity: 1;} 
-  to {top: 0; opacity: 0;}
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {top: 30px; opacity: 1;}
-  to {top: 0; opacity: 0;}
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
 }
 
 @media screen and (max-height: 600px) {
@@ -478,7 +524,8 @@ p.quote-context {
     padding: 0;
   }
 
-  .delete, .enter {
+  .delete,
+  .enter {
     height: 1.75rem;
     padding: 0;
   }

@@ -3,4 +3,5 @@ export const theme = [
   "Creativity", "Tenacity", "Humour", "Compassion", "Mindfulness", "Diplomacy", "Flexibility", "Creativity", "Self-Reliance", "Humour", "Science", "Creativity", "Freedom", "Conscience", "Prediction", "Character", "Perspective", "Perspective", "Family", "Self-Discovery", "Courage", "Character", "Love", "Compassion", "Mental Health", "Integrity", "Character", "Education", "Optimism", "Character",
 
   "Politics", "Boundaries", "Destinations", "Equality", "Perseverance", "Perspective", "Compassion", "Optimism", "Surrender", "Courage", "Character", "Humour", "Perspective", "Truth", "Mindset", "Career", "Character", "War", "Creativity", "Age", "Courage", "Control", "Compassion", "Strength", "Accomplishment", "Power", "Self-Reliance", "Creativity", "Courtesy", "Truth", "Respect",
+  "Perseverance", "Politics", "Self-Discovery", "Technology", "Perspective", "Character", "Education", "Truth", "Responsibility", "Understanding", "Self-Reliance", "Focus", "Morality", "Civics", "Perspective", "Education",
 ]
