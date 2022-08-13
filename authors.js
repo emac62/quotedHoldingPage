@@ -4,4 +4,5 @@ export const authors = [
 
   "Robin Williams", "Katharine Hepburn", "Lao Tzu", "Kamala Harris", "Babe Ruth", "Anais Nin", "Desmond Tutu", "Christopher Reeve", "Ernesto 'Che' Guevara", "Henry Ford", "Anne Frank", "Eartha Kitt", "Aesop", "Geoffrey Chaucer", "Steve Jobs", "Georgia O'Keeffe", "Ernest Hemingway", "Douglas MacArthur", "Amanda Gorman", "Mark Twain", "Franklin D Roosevelt", "Lord Acton", "Maya Angelou", "Susan B. Anthony", "Abraham Lincoln", "George Orwell", "Ella Wheeler Wilcox", "Carol Burnett", "Howard W. Newton", "J.K. Rowling", "Alfred Tennyson",
   "Hillary Clinton", "George Orwell", "Voltaire", "Ansel Adams", "Percy Bysshe Shelley", "Timothy Leary", "Confucius", "Charles Dickens", "Margaret Atwood", "Albert Camus", "Bruce Lee", "Marie Curie", "Malcolm X", "Margaret Thatcher", "Franz Kafka", "Eleanor Roosevelt",
+  "Antoine de Saint Exupéry", "Emily Bronte", "Elizabeth Taylor", "Julie Taymor", "Pyotr Tchaikovsky", "Shirley Temple", "Margaret Wolfe Hungerford", "Eckhart Tolle", "Lily Tomlin", "Neil Armstrong", "William Mountford", "Socrates", "Babe Ruth", "Pablo Picasso", "Napoleon Hill",
 ]
