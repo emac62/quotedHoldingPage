@@ -56,7 +56,7 @@ let rowArray = []
 let spaces = [];
 let letterBoxes = []
 let letterBoxesLen = 0
-let endResult = ""
+
 let runPts = document.getElementById("runningPts")
 let firstEmpty = 0
 
@@ -88,6 +88,9 @@ var showAnimationBool = (showAnimations === 'true')
 
 let gameMode = localStorage.getItem("gameMode")
 if (gameMode === null) gameMode = "Regular"
+
+let endResult = localStorage.getItem("endResult")
+if (endResult === null) endResult = "In Progress"
 
 
 var gamesWon = 0
@@ -257,6 +260,7 @@ function initBoard() {
       runningPoints = gamePoints[gamePoints.length - 1]
       runPts.textContent = runningPoints
       document.getElementById('guessCount').innerHTML = averageLetters[averageLetters.length - 1]
+      endResult = localStorage.getItem("endResult")
       revealAnswer()
       getStats()
       setTimeout(function () { $('#endOfGameModal').modal('show') }, 3000)
@@ -264,6 +268,7 @@ function initBoard() {
       resetGame()
     }
   } else {
+    localStorage.setItem("endResult", "In Progress")
     localStorage.setItem("nextLetter", "0")
     nextLetter = parseInt(localStorage.getItem("nextLetter"))
     currentGuess.length = 0
@@ -536,6 +541,7 @@ function checkSaying() {
       endOfGameSaveLS()
       gamesLost += 1
       endResult = "Missed"
+      localStorage.setItem("endResult", endResult)
       localStorage.setItem("gamesLost", gamesLost)
       getAverageLetterInt()
       getStats()
@@ -553,6 +559,7 @@ function checkSaying() {
       solveBtn.style.border = "none"
       gamesWon += 1
       endResult = "Solved"
+      localStorage.setItem("endResult", endResult)
       localStorage.setItem("gamesWon", gamesWon)
       let spaceUsed = currentGuess.includes(" ")
       if (gameMode != "Easy" && spaceUsed === false) {
@@ -577,6 +584,7 @@ function checkSaying() {
       toastPopup("Correct!")
       gamesWon += 1
       endResult = "Solved"
+      localStorage.setItem("endResult", endResult)
       localStorage.setItem("gamesWon", gamesWon)
       currentGamePoints += 500
       runPts.innerHTML = currentGamePoints
