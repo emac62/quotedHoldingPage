@@ -7,4 +7,7 @@ export const authors = [
   "Antoine de Saint Exupéry", "Emily Bronte", "Elizabeth Taylor", "Julie Taymor", "Pyotr Tchaikovsky", "Shirley Temple", "Margaret Wolfe Hungerford", "Eckhart Tolle", "Lily Tomlin", "Neil Armstrong", "William Mountford", "Socrates", "Babe Ruth", "Pablo Picasso", "Napoleon Hill", "Katharine Lee Bates", "Samuel Johnson", "Aesop", "D.H. Lawrence", "J.K. Rowling", "Stanislaw Jerzy Lec", "John Dewey", "Alphonse Karr", "Otto von Bismarck", "Henry David Thoreau", "Charles Dickens", "Charlotte Bronte", "Timothy Leary", "John B. Soule", "John Ruskin", "Henry David Thoreau", "Lewis Carroll", "Matthew Arnold", "Queen Elizabeth II", "Lauren Bacall", "John Sherman", "Richard Franck", "Friedrich Nietzsche", "Mark Twain", "Robert Louis Stevenson", "Adolph Ochs", "Anatole France", "Thomas Edison", "Ella Wheeler Wilcox", "Dr. Seuss",
   "Friedrich Nietzsche", "Pratibha Patil", "Edith Wharton", "Rosa Parks", "Nicholas Murray Butler", "George Santayana", "Lester B Pearson", "Dolly Parton", "Boris Pasternak", "Hugh Wilson",
 
-  "O Henry", "Sylvia Plath", "Sidney Poitier", "Federico Fellini", "Amelia Earhart", "Anne Frank",]
+  "O Henry", "Sylvia Plath", "Sidney Poitier", "Federico Fellini", "Amelia Earhart", "Anne Frank",
+  "Martha Washington", "Helen Keller", "Jane Wagner", "Joel Grey", "Edith Cavell", "Woody Guthrie", "Sue Grafton", "Katherine Paterson", "Brad Pitt", "George Orwell", "Alan Greenspan", "Thomas Edison", "Elizabeth Gilbert", "Malcolm Gladwell", "William Shakespeare",
+
+]
