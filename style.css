@@ -25,17 +25,21 @@ h3 {
 }
 
 .banner-ad-container {
-  width: 600px;
-  height: 80px;
-  display: block;
-  margin: 0 auto;
+  width: 400px;
+  height: 60px;
+  position: relative;
+  margin: auto;
 }
 
 .banner-ad {
-  height: 100%;
-  padding-top: 4px;
-  background-color: #739976;
-
+  width: 300px;
+  height: 50px;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  justify-self: center;
+  align-items: center;
 }
 
 .container-fluid {
@@ -238,6 +242,7 @@ a.backBtn:hover {
 
 #solveBtn,
 #hintBtn,
+#exitBtn,
 #solveBtnP {
   width: max-content;
   display: block;
@@ -279,11 +284,24 @@ a.backBtn:hover {
   line-height: 200%;
 }
 
-.modal-content h6 {
-  font-size: 100%;
-  margin-top: 20px;
-  padding: 2px;
-  font-weight: bold;
+.infoSide {
+  text-align: end;
+}
+
+
+img.img-fluid.appIcon {
+  max-width: 50px;
+  border-radius: 5px;
+}
+
+p.appSaying {
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+img.appStoreImg,
+img.googleImg {
+  width: 75%;
 }
 
 .text-emph {
@@ -398,7 +416,8 @@ p.quote-context {
   flex: 1;
 }
 
-.shareBtn {
+.shareBtn,
+.yesterday {
   padding: 5px 10px;
   background-color: #739976;
   color: #F5F4F4;
@@ -558,6 +577,10 @@ p.quote-context {
   .game-board-container {
     height: fit-content;
     margin: 10px auto;
+  }
+
+  .banner-ad-container {
+    width: 100%;
   }
 
   .banner-ad {

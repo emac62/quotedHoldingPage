@@ -273,7 +273,8 @@
                 more than one sentence so we have already
                 inserted the spaces and puncutation. Just solve! Thanks to Luke Peavey for the Quotable API.</div>
               <div class="practiceMode">
-                <a role="button" class="linkBtn" aria-label="Go to Practice Mode" href="practice.html">Practice
+                <a role="button" class="linkBtn" id="practiceBtn" aria-label="Go to Practice Mode"
+                  href="practice.html">Practice
                   Mode</a>
               </div>
             </div>
@@ -282,7 +283,7 @@
       </div>
     </div>
     <div class="modal fade" id="endOfGameModal" tabindex="-1" aria-labelledby="endOfGameModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="endOfGameModalLabel">Quote and Author</h5>
@@ -322,6 +323,40 @@
                 <div class="stats-header">Average Letters Used</div>
               </div>
             </div>
+            <div class="clearfix">
+              <hr>
+              <div class="">
+
+                <div class="row align-items-center">
+                  <div class="col-6 infoSide">
+                    <div><small>Looking for a quick word game?</small></div>
+                    <div><small>Try Hang 7</small></div>
+                  </div>
+                  <div class="col-2 imgSide">
+                    <div class="float-start"><a href="https://hang7.page.link/RtQw">
+                        <img class="img-fluid appIcon" src="img/seven.png" alt="Hang 7 Logo">
+                      </a>
+
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="">
+                      <a href="https://apps.apple.com/us/app/hang-7/id1630572226" target="_blank"
+                        rel="noopener noreferrer"><img class="appStoreImg" src="img/AppStore512.png"
+                          alt="Download on the App Store"></a>
+                    </div>
+                    <div class="">
+                      <a href='https://play.google.com/store/apps/details?id=com.blB.hang7' target="_blank"
+                        rel="noopener noreferrer"><img class="googleImg" alt='Get it on Google Play'
+                          src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
+                    </div>
+                  </div>
+                </div>
+                <p class="appSaying text-center">Guess the 7 letter word before hanging your Undees!</p>
+
+
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <div class="footer-container">
@@ -339,7 +374,25 @@
         </div>
       </div>
     </div>
-
+    <div class="modal fade" id="yesterdayModal" tabindex="-1" aria-labelledby="yesterdayModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="yesterdayModalLabel">Yesterday's Quote</h5>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="clearfix">
+              <div id="yesterdayBlockquote"></div>
+              <div class="float-end" id="yesterdayAuthor"></div>
+              <div>
+                <p class="quote-context" id="yesterdayContext"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   <div id="toast"></div>
 
@@ -354,7 +407,10 @@
         <h6 class="guesses text-center">Letters Used: <span id="guessCount">0</span>/10</h6>
       </div>
       <div class="col">
-        <button class="keyboard-button invisible wideBtn" id="hintBtn">Hint</button>
+        <div class="row">
+          <button class="keyboard-button invisible wideBtn" id="hintBtn">Hint</button>
+          <button class="keyboard-button invisible wideBtn" id="exitBtn">Exit Solve</button>
+        </div>
       </div>
       <div class="col">
         <button class="keyboard-button" id="solveBtn">Guess the Quote</button>
@@ -407,9 +463,11 @@
     </div>
 
   </div>
+  <div class=" text-center pt-4"><button type="button" id="yesterday" class="shareBtn" data-bs-toggle="modal"
+      data-bs-target="#yesterdayModal">
+      Yesterday's Quote
+    </button></div>
 
-  <div class="text-center">
-  </div>
 
 
   <!-- <div class="banner-ad text-center pt-4">Future Banner Ad</div> -->

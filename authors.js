@@ -10,4 +10,6 @@ export const authors = [
   "O Henry", "Sylvia Plath", "Sidney Poitier", "Federico Fellini", "Amelia Earhart", "Anne Frank",
   "Martha Washington", "Helen Keller", "Jane Wagner", "Joel Grey", "Edith Cavell", "Woody Guthrie", "Sue Grafton", "Katherine Paterson", "Brad Pitt", "George Orwell", "Alan Greenspan", "Thomas Edison", "Elizabeth Gilbert", "Malcolm Gladwell", "William Shakespeare",
 
+  "Lilian GIsh", "Lucretius", "Mahatma Gandhi", "Tom Heehler", "Martha Graham", "Francis Ford Coppola/Mario Puzo", "Maya Angelou", "Napoleon Hill", "Malala Yousafzai", "Lucretius", "John McCrae", "Maxim Gorky", "Ralph Waldo Emerson", "Alexander Pope", "Voltaire", "George Santayana", "Sri Chinmoy", "Isaac Asimov", "Edith Wharton", "Pelé",
+
 ]

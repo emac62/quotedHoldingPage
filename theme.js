@@ -9,4 +9,6 @@ export const theme = [
   "Power", "Politics", "Priviledge", "Activism", "Education", "History", "Power", "Mindset", "Honesty", "Thanksgiving",
 
   "Death", "Mental Health", "Ageing", "Creativity", "Courage", "Legacy", "Truth", "Education", "Life", "Self-Reliance", "Patriotism", "Politics", "Perspective", "Character", "Boundaries", "Power", "Economics", "Perserverence", "Self-Reliance", "Education", "Hallowe'en",
+
+  "Creativity", "Persistence", "Education", "Character", "Excellence", "Boundaries", "Effort", "Character", "Lessons", "Courage", "War", "Life", "Friendship", "Optimism", "Civics", "Self-Love", "Life Lessons", "Humanity", "Lessons", "Sports",
 ]
