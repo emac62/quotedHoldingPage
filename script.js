@@ -9,28 +9,43 @@ if (localStorage.getItem("freshStart") === null) {
   localStorage.clear()
   localStorage.setItem("freshStart", true)
 }
-
-const offsetFromDate = new Date(2022, 4, 4) // months: 0 - 11 days: 1 - 31
-
+// change to current date for practice
+const offsetFromDate = new Date(2022, 9, 28) // months: 0 - 11 days: 1 - 31
+// console.log(QUOTES.length)
 
 const msOffset = Date.now() - offsetFromDate
 // const dayOffset = (msOffset / 1000 / 60 / 60 / 24) | 0 //works!
-const dayOffset = (msOffset / 1000 / 60 / 60 / 24) | 0
-// const every15 = (msOffset / 1000 / 60 / 60 - 12) | 0
-// console.log(every15)
+// const dayOffset = (msOffset / 1000 / 60 / 60 / 24) | 0
+const every15 = (msOffset / 1000 / 60 / 60 / 0.25) | 0
+console.log(every15)
 // console.log("dayOffset: " + dayOffset)
 
 var currentGamePoints = 0
-var runningPoints = JSON.parse(localStorage.getItem("runningPoints"))
-if (runningPoints == null) runningPoints = currentGamePoints
+var runningPoints = localStorage.getItem("runningPoints")
+if (runningPoints === null) {
+  localStorage.setItem("runningPoints", 0)
+
+}
 var finishedGames = JSON.parse(localStorage.getItem("finishedGames"))
 if (finishedGames === null) finishedGames = []
 
-//for live
-var currentQuote = dayOffset
+// for live
+// var currentQuote = dayOffset
+// var yesterdayQuote = dayOffset - 1
 
 ///for practice
 // let currentQuote = finishedGames.length ? finishedGames.length : 0
+// let yesterdayQuote = (finishedGames.length > 0) ? finishedGames.length - 1 : null
+
+// every 15
+var currentQuote = every15
+console.log("currentQuote: " + every15)
+var yesterdayQuote = every15 - 1
+
+
+// console.log("yesterdayQuote:" + yesterdayQuote)
+let yesterday = QUOTES[yesterdayQuote]
+
 
 localStorage.setItem("currentQuote", currentQuote)
 // console.log("currentQuote: " + currentQuote)
@@ -59,6 +74,9 @@ let letterBoxesLen = 0
 let endResult = ""
 let runPts = document.getElementById("runningPts")
 let firstEmpty = 0
+
+var lastResult = localStorage.getItem("lastResult")
+if (lastResult === null) localStorage.setItem("lastResult", "Unfinished")
 
 var currentGuess = JSON.parse(localStorage.getItem("currentGuess"))
 if (currentGuess === null) currentGuess = []
@@ -252,15 +270,21 @@ function initBoard() {
     }
 
   }
+
   if (lastQuoteLoaded == currentQuote) {
     if (finishedGames.includes(currentQuote)) {//check completed currentQuote
       runningPoints = gamePoints[gamePoints.length - 1]
       runPts.textContent = runningPoints
       document.getElementById('guessCount').innerHTML = averageLetters[averageLetters.length - 1]
+      endResult = localStorage.getItem("lastResult")
+      document.getElementById('gameResult').innerHTML = endResult
+
+      document.getElementById('currentGamePts').innerHTML = runningPoints
       revealAnswer()
       getStats()
       setTimeout(function () { $('#endOfGameModal').modal('show') }, 3000)
     } else {
+      currentGamePoints = parseInt(localStorage.getItem("runningPoints"))
       resetGame()
     }
   } else {
@@ -292,7 +316,20 @@ quoteAuthor.textContent = "- " + currentAuthor
 let quoteContext = document.getElementById("context")
 quoteContext.innerHTML = currentContext + "."
 
+let yesterdayBlockquote = document.getElementById('yesterdayBlockquote')
+let yesterdayAuthor = document.getElementById('yesterdayAuthor')
+let yesterdayContext = document.getElementById('yesterdayContext')
+if (yesterdayQuote) {
+  yesterdayBlockquote.textContent = yesterday.toUpperCase() + "."
+  yesterdayAuthor.textContent = "- " + authors[yesterdayQuote]
+  yesterdayContext.textContent = context[yesterdayQuote] + "."
+} else {
+  yesterdayBlockquote.textContent = "Hmm... something went wrong!"
+  yesterdayAuthor.textContent = "- Ellen"
+  yesterdayContext.textContent = null
+}
 
+let exitBtn = document.getElementById("exitBtn")
 let hintBtn = document.getElementById("hintBtn")
 hintBtn.addEventListener("click", function () {
   toastPopup(hint.toUpperCase())
@@ -336,6 +373,9 @@ for (var i = 0; i < buttons; i++) {
     }
     if (pressedKey == "Guess the Quote") {
       guessThePhrase()
+    }
+    if (pressedKey == "Exit Solve") {
+      returnToSelectLetters()
     }
     if (pressedKey == "Solve") {
       checkSaying()
@@ -464,6 +504,7 @@ const pressEnter = async () => {
       box.classList.add("letter-box-used")
       box.style.backgroundColor = "#739976"
       box.style.color = "#F5F4F4"
+      box.style.border = "none"
       shadeKeyBoard(currentGuess[nextLetter - 1], '#739976')
       currentGamePoints += 10
       runPts.innerHTML = currentGamePoints
@@ -536,6 +577,7 @@ function checkSaying() {
       endOfGameSaveLS()
       gamesLost += 1
       endResult = "Missed"
+      localStorage.setItem("lastResult", endResult)
       localStorage.setItem("gamesLost", gamesLost)
       getAverageLetterInt()
       getStats()
@@ -553,6 +595,7 @@ function checkSaying() {
       solveBtn.style.border = "none"
       gamesWon += 1
       endResult = "Solved"
+      localStorage.setItem("lastResult", endResult)
       localStorage.setItem("gamesWon", gamesWon)
       let spaceUsed = currentGuess.includes(" ")
       if (gameMode != "Easy" && spaceUsed === false) {
@@ -577,6 +620,7 @@ function checkSaying() {
       toastPopup("Correct!")
       gamesWon += 1
       endResult = "Solved"
+      localStorage.setItem("lastResult", endResult)
       localStorage.setItem("gamesWon", gamesWon)
       currentGamePoints += 500
       runPts.innerHTML = currentGamePoints
@@ -599,11 +643,50 @@ let guessBoxesUsed = []
 let guessBoxes = []
 let guessBoxesLen = 0
 
+function returnToSelectLetters() {
+  isSolving = false;
+  hintBtn.classList.remove("visible")
+  hintBtn.classList.add("invisible")
+
+  exitBtn.classList.remove("visible")
+  exitBtn.classList.add("invisible")
+
+  solveBtn.textContent = "Guess the Quote"
+  spaceBar.textContent = "SHOW SPACES BETWEEN WORDS"
+
+  delBtn.disabled = false
+  enterBtn.disabled = false
+  for (var i = 0; i < guessBoxesLen; i++) {
+    let box = guessBoxes[i]
+    let tile = parseInt(box)
+    letterBoxes[tile].textContent = ""
+    letterBoxes[tile].classList.remove("letter-box-selected")
+    letterBoxes[tile].classList.remove("guessBox")
+    letterBoxes[tile].classList.remove("letter-box-used")
+    letterBoxes[tile].classList.add("letter-box-unselected")
+    letterBoxes[tile].style.backgroundColor = 'transparent'
+    // letterBoxes[tile].style.border = "1px solid #F5F4F4"
+    removeEventListener("click", function () {
+      getUserInput(box.id)
+    })
+  }
+  guessBoxes = []
+  guessBoxesLen = 0
+  getFirstEmptyGuessBox()
+}
+
+
 function guessThePhrase() {
   isSolving = true
   hintBtn.classList.remove("invisible")
   hintBtn.classList.add("visible")
+  if (currentGuess.length < 10) {
+    exitBtn.classList.remove("invisible")
+    exitBtn.classList.add("visible")
+    // toastPopup("The Exit Solve button will return")
+  }
   spaceBar.textContent = "space"
+  solveBtn.textContent = "solve"
   delBtn.disabled = true
   enterBtn.disabled = true
   for (var i = 0; i < letterBoxesLen; i++) {
@@ -619,7 +702,9 @@ function guessThePhrase() {
     }
   }
   guessBoxesLen = guessBoxes.length
+  getFirstEmptyGuessBox()
   if (guessBoxesLen > 0) {
+    document.getElementById(guessBoxes[firstEmpty]).classList.remove("letter-box-unselected")
     document.getElementById(guessBoxes[firstEmpty]).classList.add("letter-box-selected")
   }
 }
@@ -684,6 +769,7 @@ function enterGuessLetters(pressedKey) {
     guess.style.color = "#F5F4F4"
     getFirstEmptyGuessBox()
     userInput = false
+    document.getElementById(guessBoxes[firstEmpty]).classList.remove("letter-box-unselected")
     document.getElementById(guessBoxes[firstEmpty]).classList.add("letter-box-selected")
   }
   solveBtn.textContent = "Solve"
@@ -768,7 +854,7 @@ function endOfGameSaveLS() {
 let shareBtn = document.getElementById("shareResults")
 shareBtn.addEventListener("click", function () {
 
-  var results = "dailyquote.ca " + "#" + currentQuote + " " + endResult + " in " + averageLetters[averageLetters.length - 1] + " / " + currentGamePoints + " pts"
+  var results = "dailyquote.ca " + "#" + currentQuote + " " + localStorage.getItem("lastResult") + " in " + averageLetters[averageLetters.length - 1] + " / " + currentGamePoints + " pts"
   navigator.clipboard.writeText(results)
   toastPopup("Results copied to Clipboard")
   shareBtn.textContent = "Copied"
