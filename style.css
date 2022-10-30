@@ -243,6 +243,7 @@ a.backBtn:hover {
 #solveBtn,
 #hintBtn,
 #exitBtn,
+#yesterday,
 #solveBtnP {
   width: max-content;
   display: block;

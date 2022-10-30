@@ -368,6 +368,8 @@ for (var i = 0; i < buttons; i++) {
       returnToSelectLetters()
     }
     if (pressedKey == "Solve") {
+      exitBtn.disabled = true
+      exitBtn.style.border = "none"
       checkSaying()
     }
     let found = pressedKey.match(/[a-z,_'.]/gi)
@@ -642,7 +644,8 @@ function returnToSelectLetters() {
   exitBtn.classList.add("invisible")
 
   solveBtn.textContent = "Guess the Quote"
-  spaceBar.textContent = "SHOW SPACES BETWEEN WORDS"
+  spaceBar.textContent = "show spaces between words"
+  spaceBar.disabled = false
 
   delBtn.disabled = false
   enterBtn.disabled = false
@@ -672,7 +675,8 @@ function guessThePhrase() {
   if (currentGuess.length < 10) {
     exitBtn.classList.remove("invisible")
     exitBtn.classList.add("visible")
-    // toastPopup("The Exit Solve button will return")
+    exitBtn.disabled = false
+
   }
   spaceBar.textContent = "space"
   solveBtn.textContent = "solve"
