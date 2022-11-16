@@ -10,5 +10,7 @@ export const theme = [
 
   "Death", "Mental Health", "Ageing", "Creativity", "Courage", "Legacy", "Truth", "Education", "Life", "Self-Reliance", "Patriotism", "Politics", "Perspective", "Character", "Boundaries", "Power", "Economics", "Perserverence", "Self-Reliance", "Education", "Hallowe'en",
 
-  "Creativity", "Persistence", "Education", "Character", "Excellence", "Boundaries", "Effort", "Character", "Lessons", "Courage", "War", "Life", "Friendship", "Optimism", "Civics", "Self-Love", "Life Lessons", "Humanity", "Lessons", "Sports",
+  "Creativity", "Persistence", "Education", "Character", "Excellence", "Boundaries", "Effort", "Character", "Lessons", "Courage", "War", "Life", "Friendship", "Optimism", "Civics", "Self-Love",
+
+  "Life Lessons", "Humanity", "Lessons", "Sports", "Bullying", "War", "Creativity", "Honesty", "Comfort", "Learning", "Artistry", "Music", "Feminism", "Justice", "Health",
 ]
