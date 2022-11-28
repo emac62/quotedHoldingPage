@@ -14,4 +14,6 @@ export const authors = [
 
   "Sri Chinmoy", "Isaac Asimov", "Edith Wharton", "Pelé", "Dorothy Espelage", "Julian Assange", "Albert Einstein", "Abraham Lincoln", "Brenda Donald", "John Leguizamo", "Vincent Van Gogh", "Brian Eno", "Betty Ford", "Cicero", "Ronald Reagan",
 
+  "Barack Obama", "Philip James Bailey", "Henri-Frédéric Amiel", "Robert Fulghum", "Anais Nin", "Cleveland/Benson/Gaye", "Natalie Portman", "Haile Selassie I", "Khalil Gibran", "Helen Keller", "Napoleon Hill", "Babe Ruth",
+
 ]
