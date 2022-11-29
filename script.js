@@ -10,13 +10,13 @@ if (localStorage.getItem("freshStart") === null) {
   localStorage.setItem("freshStart", true)
 }
 // change to current date for practice
-const offsetFromDate = new Date(2022, 9, 28) // months: 0 - 11 days: 1 - 31
+const offsetFromDate = new Date(2022, 10, 9) // months: 0 - 11 days: 1 - 31
 // console.log(QUOTES.length)
 
 const msOffset = Date.now() - offsetFromDate
 // const dayOffset = (msOffset / 1000 / 60 / 60 / 24) | 0 //works!
 // const dayOffset = (msOffset / 1000 / 60 / 60 / 24) | 0
-const every15 = (msOffset / 1000 / 60 / 60 / 0.25) | 0
+const every15 = (msOffset / 1000 / 60 / 60 / 0.125) | 0
 console.log(every15)
 // console.log("dayOffset: " + dayOffset)
 
