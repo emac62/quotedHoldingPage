@@ -16,4 +16,6 @@ export const authors = [
 
   "Barack Obama", "Philip James Bailey", "Henri-Frédéric Amiel", "Robert Fulghum", "Anais Nin", "Cleveland/Benson/Gaye", "Natalie Portman", "Haile Selassie I", "Khalil Gibran", "Helen Keller", "Napoleon Hill", "Babe Ruth",
 
+  "Ralph Waldo Emerson", "Franz Liszt", "Voltaire", "Albert Einstein", "Anne Murray", "Boris Pasternak", "Honoré de Balzac", "Pablo Picasso", "Bertrand Russell", "Meryl Streep", "Clement Clarke Moore", "Valentine Davies", "John Ruskin",
+
 ]
