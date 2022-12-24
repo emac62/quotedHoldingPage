@@ -16,5 +16,7 @@ export const theme = [
 
   "Equality", "Life", "Self-Reliance", "Creativity", "Humanity", "Remembrance", "Creativity", "Civics", "Life Lessons", "Resilience", "Character", "Perseverance",
 
-  "Self-Reliance", "Productivity", "Freedom", "Bullying", "Effort", "Perseverance", "Lessons", "Perspective", "Life Lessons", "Humanity", "Anticipation", "Character", "Responsibility",
+  "Self-Reliance", "Productivity", "Freedom", "Bullying", "Effort", "Perseverance", "Lessons", "Perspective", "Life Lessons", "Humanity", "Anticipation", "Character", "Excess",
+
+  "Effort", "Compassion", "Learning", "Honesty", "Joy", "Renewal", "Balance", "Responsibility", "Perspective", "Mindset", "Education", "Life", "Creativity", "Humanity", "Self-Reliance", "Power",
 ]

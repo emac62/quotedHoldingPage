@@ -18,4 +18,6 @@ export const authors = [
 
   "Ralph Waldo Emerson", "Franz Liszt", "Voltaire", "Albert Einstein", "Anne Murray", "Boris Pasternak", "Honoré de Balzac", "Pablo Picasso", "Bertrand Russell", "Meryl Streep", "Clement Clarke Moore", "Valentine Davies", "John Ruskin",
 
+  "F. W. de Klerk", "St. Augustine", "Sa’eb Erakat", "William Shakespeare", "Coventry Patmore", "Alfred Lord Tennyson", "Napoleon Hill", "Bono", "Isaac Newton", "William Shakespeare", "Dolly Parton", "Elie Wiesel", "Toni Morrison", "Eckhart Tolle", "Emily Dickinson", "Mahatma Gandhi",
+
 ]
