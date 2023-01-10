@@ -20,4 +20,6 @@ export const authors = [
 
   "F. W. de Klerk", "St. Augustine", "Sa’eb Erakat", "William Shakespeare", "Coventry Patmore", "Alfred Lord Tennyson", "Napoleon Hill", "Bono", "Isaac Newton", "William Shakespeare", "Dolly Parton", "Elie Wiesel", "Toni Morrison", "Eckhart Tolle", "Emily Dickinson", "Mahatma Gandhi",
 
+  "Walt Disney", "Tenzin Gyatso", "Thomas Edison", "Charles Stubbs"
+
 ]

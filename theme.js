@@ -19,4 +19,8 @@ export const theme = [
   "Self-Reliance", "Productivity", "Freedom", "Bullying", "Effort", "Perseverance", "Lessons", "Perspective", "Life Lessons", "Humanity", "Anticipation", "Character", "Excess",
 
   "Effort", "Compassion", "Learning", "Honesty", "Joy", "Renewal", "Balance", "Responsibility", "Perspective", "Mindset", "Education", "Life", "Creativity", "Humanity", "Self-Reliance", "Power",
+
+  "Humour ", "Peace", "Death", "Character",
+
+
 ]
