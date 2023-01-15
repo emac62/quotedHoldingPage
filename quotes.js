@@ -21,4 +21,6 @@ export const QUOTES = [
   "peace does not simply mean the absence of conflict", "love the sinner and hate the sin", "respect is a stepping stone to empathy", "nothing can come of nothing", "life is not life at all without delight", "ring out the old, ring in the new", "no person may enjoy outstanding success without good health", "it\u0027s much harder to be relevant than it is to be successful", "if i have seen further it is only by standing on the shoulders of giants", "if music be the food of love, play on", "if you can learn to read, you can learn almost anything", "for me, every hour is grace", "language alone is meditation", "life is the dancer and you are the dance", "i took my power in my hand and went against the world", "there is no such thing as slow freedom",
 
   "for every laugh, there should be a tear", "compassion and tolerance are not a sign of weakness but a sign of strength", "it is very beautiful over there", "to sit alone with my conscience will be judgement enough for me",
+
+  "hope awakens courage", "war is what happens when language fails", "while there\u0027s life, there is hope", "the more we love the richer life is", "running water never grows stale", "without forgiveness there is no future",
 ]
