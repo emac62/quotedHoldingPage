@@ -23,4 +23,6 @@ export const QUOTES = [
   "for every laugh, there should be a tear", "compassion and tolerance are not a sign of weakness but a sign of strength", "it is very beautiful over there", "to sit alone with my conscience will be judgement enough for me",
 
   "hope awakens courage", "war is what happens when language fails", "while there\u0027s life, there is hope", "the more we love the richer life is", "running water never grows stale", "without forgiveness there is no future",
+
+  "you must enter a relationship with yourself before anyone else", "we didn\u0027t lose the game, we just ran out of time", "no story lives unless someone wants to listen", "enjoy every minute of life", "i get so depressed after a poor meal", "the time is always right to do right", "our knowledge has made us cynical", "the greatest danger to our future is apathy", "if you believe, clap your hands", "there is only one thing that can kill the movies and that is education"
 ]

@@ -23,4 +23,5 @@ export const authors = [
   "Walt Disney", "Tenzin Gyatso", "Thomas Edison", "Charles Stubbs",
   "Karl Ludwig Von Knebel", "Margaret Atwood", "Stephen Hawking", "L.M. Montgomery", "Bruce Lee", "Desmond Tutu",
 
+  "rupi kaur", "Vince Lombardi", "J.K. Rowling", "Michael Jordan", "Julia Child", "Martin Luther King Jr.", "Charlie Chaplin", "Jane Goodall", "James Barrie", "Will Rogers",
 ]

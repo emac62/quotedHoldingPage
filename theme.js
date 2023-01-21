@@ -23,4 +23,6 @@ export const theme = [
   "Humour ", "Peace", "Death", "Character",
 
   "Inner-Strength", "Compromise", "Perspective", "Life Lessons", "Balance", "Humanity",
+
+  "Self-Love", "Competition", "Creativity", "Joy", "Perspective", "Character", "Power", "Mindset", "Hope", "Entertainment",
 ]
