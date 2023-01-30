@@ -25,4 +25,6 @@ export const theme = [
   "Inner-Strength", "Compromise", "Perspective", "Life Lessons", "Balance", "Humanity",
 
   "Self-Love", "Competition", "Creativity", "Joy", "Perspective", "Character", "Power", "Mindset", "Hope", "Entertainment",
+  "Jimmy Dugan", "Carl Denham", "Clarence the Angel", "Dory the Clownfish", "Grammys", "Johnny Castle", "President Snow", "The Black Knight", "Blanche Dubois", "Gangster 'Johnny'", "Col. Nathan Jessep", "Thumper", "Lt. Col. Bill Kilgore", "Jennifer Barrett", "Harry Callahan", "Rhett Butler", "Shuri", "Chief Brody", "The Blue Fairy", "Don Vito Corleone", "Red", "Buzz Lightyear", "William Wallace", "Female Customer", "Forrest Gump", "Hannibal Lecter", "Dorothy Boyd", "Albus Dumbledore", "Modesty",
+
 ]

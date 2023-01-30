@@ -24,4 +24,7 @@ export const authors = [
   "Karl Ludwig Von Knebel", "Margaret Atwood", "Stephen Hawking", "L.M. Montgomery", "Bruce Lee", "Desmond Tutu",
 
   "rupi kaur", "Vince Lombardi", "J.K. Rowling", "Michael Jordan", "Julia Child", "Martin Luther King Jr.", "Charlie Chaplin", "Jane Goodall", "James Barrie", "Will Rogers",
+
+  "Jimmy Dugan / Tom Hanks", "Carl Denham / Robert Armstrong", "Clarence / Henry Travers", "Dory the Clownfish / Ellen DeGeneres", "Ariana Grande", "Johnny Castle / Patrick Swayze", "President Snow / Donald Sutherland", "The Black Knight / John Cleese", "Blanche Dubois / Vivien Leigh", "Gangster 'Johnny' / Ralph Foody", "Col. Nathan Jessep / Jack Nicholson", "Thumper / Peter Behn (young Thumper)", "Lt. Col. Bill Kilgore / Robert Duvall", "Jennifer Barrett / Ali McGraw", "Harry Callahan / Clint Eastwood", "Rhett Butler / Clark Gable", "Shuri / Letitia Wright", "Chief Brody / Roy Scheider", "The Blue Fairy / Evelyn Venable", "Don Vito Corleone / Marlon Brando", "Red / Morgan Freeman", "Buzz Lightyear / Tim Allen", "William Wallace / Mel Gibson", "Customer / Estelle Reiner", "Forrest Gump / Tom Hanks", "Hannibal Lecter / Anthony Hopkins", "Dorothy Boyd / Renée Zellweger", "Albus Dumbledore / Richard Harris", "River Phoenix",
+
 ]

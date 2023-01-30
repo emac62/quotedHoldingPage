@@ -104,6 +104,29 @@ a.backBtn:hover {
   height: 25px;
 }
 
+.newSiteBtn {
+  padding: 5px 10px;
+  background-color: #739976;
+  border: 2px solid #F5F4F4;
+  border-radius: 5px;
+  color: #182835;
+  text-decoration: none;
+  font-size: smaller;
+}
+
+.newSiteBtn:hover {
+  cursor: pointer;
+  background-color: #75ADAF;
+  color: #F5F4F4;
+
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0 25px 0;
+
+}
+
 .next-quote {
   font-size: 1rem;
   display: flex;
@@ -146,7 +169,7 @@ a.backBtn:hover {
   margin: 10px auto;
   width: 100%;
   min-height: 35vh;
-  background-image: url('img/backgroundImg.png');
+  background-image: url('img/stageLightsImg.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
