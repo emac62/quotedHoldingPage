@@ -398,13 +398,38 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" id="newSiteModal" tabindex="-1" aria-labelledby="newSiteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newSiteModalLabel">Daily Quote Update</h5>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="clearfix">
+              <div>
+                <div class=" bottom-info">
+                  <p>Thanks for regularly playing Daily Quote. We are grateful for your support.</p>
+                  <p>We are migrating to the new layout on March 1st. Both sites will be down for a couple of hours
+                    in the afternoon (Eastern Standard Time). Once completed, the domain name 'dailyquote.ca' point
+                    to the new platform. If it doesn't immediately pop up, please refresh the page. Statistics from
+                    'sv-dq.pages.dev' will not carry forward. (Sorry
+                    about that!) But stats from the first web page <em>should</em> carry forward! </p>
+                  <a class="newSiteBtn my-2" href="http://sv-dq.pages.dev">Daily Quote - New Site</a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
   </header>
   <div id="toast"></div>
 
   <div class="container">
     <div class="text-center">
       <h6>Awards Season Month!</h6>
-
     </div>
     <div class="game-board-container">
       <div id="game-board">
@@ -430,7 +455,8 @@
     </div>
     <div class="text-center">
 
-      <small>February quotes are from the film and music industries.</small>
+      <div><small>February quotes are from the film and music industries.</small></div>
+      <div><small>March quotes celebrate famous Irish people and sayings.</small></div>
     </div>
     <div id="keyboard-cont">
       <div class="first-row">
@@ -473,18 +499,12 @@
         <button class="keyboard-button spaceBtn" id="space">show spaces between words</button>
       </div>
     </div>
-    <div class="text-center bottom-info">
-      <p>Thank your for regularly playing Daily Quote.</p>
-      <p> As we continue to develop our quotation database, there is a need to migrate to
-        a new platform. Below is the link to the new site. The quotation on each site will be the same each day. Please
-        try the new site and send us any feedback.</p>
-      <p>In a couple of weeks we will seamlessly (hopefully) move
-        everything over, including your statistics.</p>
-      <a class="newSiteBtn my-2" href="http://sv-dq.pages.dev">Daily Quote - New Site</a>
-      <button type="button" id="yesterday" class="wideBtn mt-3" data-bs-toggle="modal" data-bs-target="#yesterdayModal">
-        Missed Yesterday? See the Quote.
-      </button>
-    </div>
+
+    <button type="button" id="yesterday" class="wideBtn mt-3" data-bs-toggle="modal" data-bs-target="#yesterdayModal">
+      Missed Yesterday? See the Quote.
+    </button>
+    <a class="newSiteBtn my-2" href="http://sv-dq.pages.dev">Daily Quote - New Site</a>
+  </div>
   </div>
   <footer><small>&copy;2023 dailyquote.ca</small></footer>
 
@@ -510,6 +530,14 @@
         <!-- $('#infoModal').modal('show'); -->
       }
       localStorage.setItem("firstTime", false)
+
+      let newSite = localStorage.getItem("showNewSiteModal")
+      if (newSite == null) newSite = "true"
+      if (newSite === "true") {
+        $('#newSiteModal').modal('show');
+      }
+      localStorage.setItem("showNewSiteModal", false)
+
 
       let showAnimations = localStorage.getItem("showAnimations")
       if (showAnimations === null) showAnimations = "true"

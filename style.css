@@ -105,10 +105,13 @@ a.backBtn:hover {
 }
 
 .newSiteBtn {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
   padding: 5px 10px;
-  background-color: #739976;
-  border: 2px solid #F5F4F4;
+  background-color: #75ADAF;
   border-radius: 5px;
+  border: 2px solid #F5F4F4;
   color: #182835;
   text-decoration: none;
   font-size: smaller;
@@ -116,7 +119,7 @@ a.backBtn:hover {
 
 .newSiteBtn:hover {
   cursor: pointer;
-  background-color: #75ADAF;
+  background-color: #739976;
   color: #F5F4F4;
 
 }
